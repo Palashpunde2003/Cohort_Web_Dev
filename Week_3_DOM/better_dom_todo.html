@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Todo</title>
+    </head>
+    <body>
+        <h1> TO-DO Element </h1>
+        <input type="text"> </input>
+        <button onclick="addTodo()">Add Todo</button>
+        <script>
+            function addTodo(){
+                const value = document.querySelector("input").value;
+                const spanElement = document.createElement("span");
+                const buttonElement = document.createElement("button");
+
+                spanElement.innerHTML = value;
+                buttonElement.innerHTML = "delete";
+
+                const divElement = document.createElement("div");
+                document.querySelector("body").appendChild(divElement);
+
+                divElement.appendChild(spanElement);
+                divElement.appendChild(buttonElement);
+            }
+        </script>
+
+
+    </body>
+</html>

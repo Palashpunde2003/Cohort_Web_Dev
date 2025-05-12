@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>
+            My Todo List.
+        </title>
+    </head>
+    <body>
+        <h1>To-Do List</h1>
+        <h2> Enter Your Task </h2>
+        <div id="task">
+            <input id= "inp" type="text"></input>
+            <button onclick="addTodo()"> Add Todo </button>
+        </div>
+    </body>
+    <script>
+        let ctr = 1;
+        function deleteTodo(id){
+            const element = document.getElementById(id);
+            element.parentNode.removeChild(element);
+        }
+        function addTodo(){
+            const inputElement = document.querySelector("input");
+            const value = inputElement.value;
+
+            const todo = document.createElement("h4");
+            todo.setAttribute("id", ctr);
+            todo.innerHTML = `<div>${value}</div> <button onclick='deleteTodo(${ctr})'> delete </button>`;
+            ctr++;
+
+            const parentElement = document.getElementById("task");
+            parentElement.appendChild(todo);
+        }
+    </script>
+</html>

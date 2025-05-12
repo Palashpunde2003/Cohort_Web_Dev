@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>todo</title>
+  </head>
+  <body>
+    <h1>MY TODO LIST</h1>
+    <input id="inp" type="text"/>
+    <button onclick="addTodo()">Add Todo</button>
+    <button onclick="deleteFirstTodo()">Delete First Todo</button>
+    <button onclick="deleteLastTodo()">Delete Last Todo</button>
+
+    <div id="todoList"></div>
+
+    <script>
+      let todos = [];
+      function addTodo(){
+        todos.push({
+          title: document.getElementById("inp").value
+        });
+        render();
+      }
+
+      function deleteFirstTodo(){
+        todos.splice(0,1);
+        render();
+      }
+
+      function deleteLastTodo(){
+        todos.splice(todos.length-1,1);
+        render();
+      }
+
+      function createTodoComponent(todo){
+        const div = document.createElement("div");
+        const h4 = document.createElement("h4");
+        const button = document.createElement("button");
+
+        button.innerHTML = "Delete";
+        h4.innerHTML = todo.title;
+
+        div.appendChild(h4);
+        div.appendChild(button);
+
+        return div;
+      }
+
+      function render(){
+        document.getElementById("todoList").innerHTML = "";
+        todos.forEach((todo, index) => {
+          const element = createTodoComponent(todo);
+          document.getElementById("todoList").appendChild(element);
+        });
+        // for(let i=0; i<todos.length;i++){
+        //   const element = createTodoComponent(todo);
+        //   document.getElementById("todoList").appendChild(element);
+        // }
+      }
+
+    </script>
+  </body>
+</html>
