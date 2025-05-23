@@ -2,7 +2,7 @@
 // const app = express();
 
 // const jwt = require('jsonwebtoken');
-// const JWT_SECRET = "biscbsiggha6981646cbfgvb"
+// const JWT_SECRET = "something_sensitive";
 
 // app.use(express.json());
 
@@ -105,7 +105,7 @@ const express = require('express');
 const app = express();
 
 const jwt = require('jsonwebtoken');
-JWT_SECRET = "c5h9bwo01fsa234bwfg56UAv";
+JWT_SECRET = "something_senistive";
 
 app.use(express.json());
 
